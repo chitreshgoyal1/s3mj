@@ -1,0 +1,25 @@
+bundle exec rake secret
+
+copy this string
+
+export SECRET_KEY_BASE= paste copied string
+
+env | grep -E "SECRET_TOKEN|SECRET_KEY_BASE"
+
+rails s -e production
+
+rake db:create RAILS_ENV=production (no need to run if database already exist)
+rake db:migrate RAILS_ENV=production
+rake assets:clobber RAILS_ENV=production(to delete existing compiled assets)
+rake assets:precompile RAILS_ENV=production
+
+RAILS_ENV=production rake assets:precompile
+
+In production INSPINIA gives error. to avoid it load inspinia assets after your another assets.
+see application.rb
+
+
+production.rb
+config.serve_static_files = true
+config.assets.compile = true
+config.assets.digest = false

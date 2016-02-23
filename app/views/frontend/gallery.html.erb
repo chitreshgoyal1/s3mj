@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag    'frontendgallery', 'admin/gallery' %>
+<%= javascript_include_tag 'frontendgallery', 'admin/gallery' %>
+<!-- banner1 -->
+<div class="banner1">
+	<div class="container">
+	</div>
+</div>
+<!-- //banner1 -->
+<!-- conference -->
+<div class="conference">
+	<div class="container">
+		<h3>Magical moments</h3>
+		<p class="nihil">We are sharing few moments.</p><br>
+
+		<div class="wrapper wrapper-content">
+		<div class="row">
+			<div class="col-lg-12">
+		    	<div class="ibox float-e-margins">
+					<div class="ibox-content">
+		                <div class="lightBoxGallery">
+		                    <% @admin_galleries.each do |gallery| %>
+			                    <a href="<%= image_path gallery.pic.url %>" title="<%= gallery.title.humanize %>" data-gallery="">
+			                    	<img src="<%= image_path gallery.pic.url(:small) %>">
+			                    </a>
+		                    <% end %>
+		                    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+		                    <div id="blueimp-gallery" class="blueimp-gallery">
+		                        <div class="slides"></div>
+		                        <h3 class="title"></h3>
+		                        <a class="prev">‹</a>
+		                        <a class="next">›</a>
+		                        <a class="close">×</a>
+		                        <a class="play-pause"></a>
+		                        <ol class="indicator"></ol>
+		                    </div>
+
+		                </div>
+		                <br><br>
+		                <span><strong>For slider view:</strong> Click on image, wait a while and click in center of image.</span>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		</div>
+
+	</div>
+</div>

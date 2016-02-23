@@ -1,0 +1,16 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Breadcrumb</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="<%= url_for :controller => 'users', :action => 'index' %>">Dashboard</a>
+            </li>
+            <li>
+                <%= params[:controller].split("/").map{|s| s.humanize}.map(&:inspect).join("</li><li>").gsub(/"/, '').html_safe rescue nil%>
+            </li>
+            <li class="active">
+                <strong><%= params[:action].humanize %></strong>
+            </li>
+        </ol>
+    </div>
+</div>

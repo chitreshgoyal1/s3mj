@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tppic: MyString
+  title: MyString
+  description: MyString
+  service_id: 1
+
+two:
+  tppic: MyString
+  title: MyString
+  description: MyString
+  service_id: 1

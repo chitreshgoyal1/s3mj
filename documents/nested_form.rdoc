@@ -1,0 +1,40 @@
+# add gem name in Gemfile
+	gem 'nested_form', '0.3.2'
+
+# run command 
+	bundle install
+
+# in application.js add this
+	//= require jquery_nested_form
+
+# in modal add this - we added class name because we have namespace class
+	has_many :admin_smedialists, :dependent => :destroy, class_name: "Admin::Smedialist"
+	accepts_nested_attributes_for :admin_smedialists, :reject_if => :all_blank, :allow_destroy => true
+#	# don't forgot to add modal_id:integer in associated modal(Smedialist)
+
+# in _form.html.erb 
+#	#replace
+	<%= form_for(@admin_service, :html=>{multipart: true, :class=>'form-horizontal', :role=>'form'}) do |f| %>
+#	# with
+		<%= nested_form_for(@admin_service, :html=>{multipart: true, :class=>'form-horizontal', :role=>'form'}) do |f| %>
+
+# if you want to create form without partial use this:
+	<%= f.fields_for :admin_smedialists do |admin_smedialist| %>
+	  <%= admin_smedialist.text_field :title %>
+	  <%= admin_smedialist.text_field :description %>
+	  <%= admin_smedialist.link_to_remove "Remove this task" %>
+	<% end %>
+	<p><%= f.link_to_add "Add a task", :admin_smedialists %></p>
+
+# if you want to create form in a partial (preferable) use this:
+#	# in _form.html.erb
+		<%= f.fields_for :admin_smedialists%>
+#	# in _admin_smedialist.html.erb
+	    <%= f.text_field :title, :class=>"form-control" %>
+	    <%= f.text_field :description, :class=>"form-control" %>
+		<%= f.link_to_remove do %>Delete<% end %>
+
+# if rails 4, add strong parameters in controller file
+	def admin_service_params
+      params.require(:admin_service).permit(admin_smedialists_attributes: [:id, :title, :description, :_destroy])
+    end

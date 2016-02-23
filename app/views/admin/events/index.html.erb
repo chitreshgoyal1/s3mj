@@ -1,0 +1,95 @@
+<div class="wrapper wrapper-content">
+<div class="row animated fadeInRight">
+
+  <div class="col-md-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>List: Events Page</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        
+        <% @admin_events.each do |admin_event| %>
+        
+          <div class="ibox-content">
+            <div class="feed-activity-list">
+
+              <div class="feed-element">
+                <small class="text-muted">
+                  Created at: <%= admin_event.created_at.strftime(" %I : %M %p - %A, %d %b ( %Y )") %><br>
+                  Updated at: <%= admin_event.updated_at.strftime(" %I : %M %p - %A, %d %b ( %Y )") %>
+                </small>
+              </div>
+
+              <div class="feed-element">
+                <strong>Event Pic</strong> <br>
+                <div class="well">
+                  <img alt="image" class="img-responsive" src="<%= admin_event.eventpic_url(:thumb) %>">
+                </div>
+              </div>
+
+              <div class="feed-element">
+                <strong>Title</strong> <br>
+                <div class="well">
+                  <%= admin_event.title.humanize %>
+                </div>
+              </div>
+
+              <div class="feed-element">
+                <strong>Description</strong> <br>
+                <div class="well">
+                  <%= admin_event.description %>
+                </div>
+              </div>
+
+              <div class="feed-element">
+                <strong>Event Date:</strong> <br>
+                <div class="well">
+                  <%= admin_event.event_date_from.strftime("%m/%d/%Y") rescue nil %>
+                  <strong>-to-</strong> <%= admin_event.event_date_to.strftime("%m/%d/%Y") rescue nil %>
+                </div>
+              </div>
+
+              <div class="feed-element">
+                <strong>Event Time:</strong> <br>
+                <div class="well">
+                  <%= admin_event.start_time.strftime("%H:%M") rescue nil %> <strong>-to-</strong> <%= admin_event.end_time.strftime("%H:%M") rescue nil %>
+                </div>
+              </div>
+
+              <div class="feed-element">
+                <strong>Location:</strong> <br>
+                <div class="well">
+                  <%= admin_event.location.humanize %>
+                </div>
+              </div>
+
+              <div class="feed-element">
+                <strong>Summery:</strong> <br>
+                <div class="well">
+                  <%= admin_event.summery.humanize %>
+                </div>
+              </div>
+
+              <div class="feed-element">
+                    <%= link_to 'Edit', edit_admin_event_path(admin_event), :class=>"btn btn-primary" %>
+                    <%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+              </div>
+                              
+            </div>
+          </div>
+        
+        <% end %>
+
+
+    </div>
+  </div><!-- col-md-8 -->
+</div>
+
+</div>

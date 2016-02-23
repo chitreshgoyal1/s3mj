@@ -1,0 +1,112 @@
+<!-- banner1 -->
+<div class="banner1">
+	<div class="container">
+		<div class="banner1-info">
+		</div>
+	</div>
+</div>
+<!-- //banner1 -->
+<!-- contact -->
+<% @admin_contact_infos.each do |admin_contact_info| %>
+	<div class="contact">
+		<div class="container">
+			<h3>Contact Us</h3>
+			<p class="nihil"><%= admin_contact_info.name.humanize %></p>
+			<div class="contact-grid">
+				<div class="col-md-12 contact-left">
+					<iframe src="<%= admin_contact_info.embed_url %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+				
+				<!-- <div class="col-md-7 contact-right">
+					<form>
+						<input type="text" placeholder="Name" required=" ">
+						<input type="text" placeholder="Email Address" required=" ">
+						<input type="text" placeholder="Phone Number" required=" ">
+						<input type="text" placeholder="Subject" required=" ">
+						<div class="clearfix"> </div>
+						<textarea placeholder="Type Your Text Here...." required=" "></textarea>
+						<input type="submit" value="Submit"><input type="reset" value="Clear">
+					</form>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+	
+
+	
+
+		<div class="container">
+
+			<div class="contact-bottom-grids">
+
+				<div class="col-md-4 contact-bottom-grid">
+					<div class="dot">
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+					</div>
+					<h4><strong><%= admin_contact_info.name.humanize %></strong></h4><br>
+					<h4><%= admin_contact_info.add_line1 %>, <%= admin_contact_info.add_line2 %><br>
+                    <%= admin_contact_info.add_line3 %>, <%= admin_contact_info.city %><br>
+                    <span><%= admin_contact_info.state %>, <%= admin_contact_info.country %></span></h4>
+				</div>
+				
+				<div class="col-md-4 contact-bottom-grid">
+					<div class="dot">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+					</div>
+					<h4>
+						<strong>Write us at:</strong>
+					</h4><br>
+					<span>
+						<a href="mailto:<%= admin_contact_info.email1 %>"><%= admin_contact_info.email1 %></a>
+						<a href="mailto:<%= admin_contact_info.email2 %>"><%= admin_contact_info.email2 %></a>
+					</span>
+				</div>
+				
+				<div class="col-md-4 contact-bottom-grid">
+					<div class="dot">
+						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+					</div>
+					<h4>
+						<span><%= admin_contact_info.phone1_code %> - <%= admin_contact_info.phone1_number %></span>
+						<span><%= admin_contact_info.phone2_code %> - <%= admin_contact_info.phone2_number %></span>
+						<span><%= admin_contact_info.mobile1 %></span>
+						<span><%= admin_contact_info.mobile2 %></span>
+					</h4>
+				</div>
+
+				<div class="clearfix"> </div>
+			</div>
+			
+			<div class="contact-bottom-grids">
+				<p>
+					<div class="col-md-4 contact-bottom-grid">
+						<div class="categories">
+							<a href="<%= admin_contact_info.facebook_url %>" target="_blank">
+								<h3>
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<strong>Facebook</strong>
+								</h3>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 contact-bottom-grid">
+						<a href="<%= admin_contact_info.twitter_url %>" target="_blank">
+							<div class="categories">
+								<h3>
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<strong>Twitter</strong>
+								</h3>
+							</div>
+						</a>
+					</div>
+					
+				</p>
+			</div>
+
+		</div>
+	
+
+<% end %>
+<!-- //contact -->

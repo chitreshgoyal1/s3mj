@@ -1,0 +1,29 @@
+<div class="ibox-content">
+<%= form_for(@admin_sharevideo, :html=>{:class=>'form-horizontal', :role=>'form'}) do |f| %>
+
+  <% if @admin_sharevideo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_sharevideo.errors.count, "error") %> prohibited this admin_sharevideo from being saved:</h2>
+
+      <ul>
+      <% @admin_sharevideo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :embed, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_area :embed, :class=>"form-control" %></div>
+  </div>
+  
+  <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-2">
+          <button class="btn btn-white" type="submit">Cancel</button>
+          <%= f.submit "Save Changes", :type=>"submit", :class=>"btn btn-primary" %>
+      </div>
+  </div>
+  
+<% end %>
+</div>

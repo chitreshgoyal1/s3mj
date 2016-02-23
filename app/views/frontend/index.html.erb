@@ -1,0 +1,105 @@
+<%= render "banner" %>
+<%= render "banner_middle" %>
+<%= render "banner_bottom" %>
+<!-- body_grids -->
+<div class="wlcome">
+	<div class="container">
+		<div class="wlcome-grids">
+			<div class="col-md-7 wlcome-grid-left">
+				<div class="election_grid">
+					<h3>Welcome !</h3>
+					<p class="nihil"></p>
+					
+					<% @admin_welcomedata.each do |welcomedata| %>
+						<div class="wlcome-grid-left-grid">
+							<div class="col-xs-8 wlcome-grid-left-grid">
+								<h4><%= welcomedata.title.humanize %></h4>
+								<p><%= welcomedata.description.humanize %></p>
+							</div>
+							<div class="col-xs-4 wlcome-grid-left-grid">
+								<img src="<%= image_path welcomedata.picture.url(:custom) %>" alt=" " class="img-responsive">
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					<% end %>
+					
+				</div>
+			</div>
+			<div class="col-md-5 wlcome-grid-right">
+				<div class="sap_tabs">	
+					<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+						  <ul class="resp-tabs-list">
+							  <li class="resp-tab-item grid1 resp-tab-active" aria-controls="tab_item-0" role="tab"><span><%= Time.now.year %> Events</span></li>
+							  <li class="resp-tab-item grid2" aria-controls="tab_item-1" role="tab"><span><%= Time.now.prev_year.year %> Events</span></li>
+							  <div class="clear"></div>
+						  </ul>				  	 
+							<div class="resp-tabs-container">
+								<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+									<% @events.each do |event| %>
+									<div class="facts">
+									  <div class="tab_list">
+									  	<img src="<%= image_path event.eventpic.url(:small) %>" alt=" " class="img-responsive">
+									  </div>
+									  <div class="tab_list1">
+									  	<%= link_to event_detail_path(event.id) do %>
+												<%= event.title.humanize %>
+										<% end %>
+										<p><%= event.event_date_from.strftime("%A, %d %b, %Y") rescue 'Not Mentioned' %>
+											<span>
+											<%= truncate(event.description, :length => 90, :separator => ' ') %>
+											</span>
+										</p>
+									  </div>
+									  <div class="clearfix"> </div>
+									</div>
+									<% end %>
+								</div>
+								<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+									<% @prev_events.each do |event| %>
+									<div class="facts">
+									  <div class="tab_list">
+									  	<img src="<%= image_path event.eventpic.url(:small) %>" alt=" " class="img-responsive">
+									  </div>
+									  <div class="tab_list1">
+										<%= link_to event_detail_path(event.id) do %>
+												<%= event.title.humanize %>
+										<% end %>
+										<p><%= event.event_date_from.strftime("%A, %d %b, %Y") rescue 'Not Mentioned' %>
+											<span><%= truncate(event.description, :length => 90, :separator => ' ') %>
+											</span>
+										</p>
+									  </div>
+									  <div class="clearfix"> </div>
+									</div>
+									<% end %>
+								</div>
+							</div>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+										type: 'default', //Types: default, vertical, accordion           
+										width: 'auto', //auto or any width like 600px
+										fit: true   // 100% fit in a container
+									});
+								});
+							   </script>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+
+			<div class="services custom-margin">
+				<h2>Videos</h2>
+				<% @admin_sharevideos.each do |sharevideo| %>
+				<div class="col-md-4">
+					<div class="video">
+						<%= sharevideo.embed.html_safe %>
+					</div>
+				</div>
+				<% end %>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- //body_grids -->

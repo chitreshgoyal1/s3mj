@@ -1,0 +1,130 @@
+<div class="ibox-content">
+<%= form_for(@admin_contact_info, :html=>{:class=>'form-horizontal', :role=>'form'}) do |f| %>
+  <% if @admin_contact_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_contact_info.errors.count, "error") %> prohibited this admin_contact_info from being saved:</h2>
+
+      <ul>
+      <% @admin_contact_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :embed_url, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_area :embed_url, :class=>"form-control", :rows=>'4' %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :email1, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :email1, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :email2, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :email2, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label "Phone Number 1", :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <div class="row">
+          <div class="col-md-3"><%= f.number_field :phone1_code, :class=>"form-control", :placeholder=>"Code" %>
+              <span class="help-block m-b-none">Ex. 0141</span>
+          </div>
+          <div class="col-md-5"><%= f.text_field :phone1_number, :class=>"form-control", :placeholder=>"Telephone Number" %>
+              <span class="help-block m-b-none">2236220</span>
+          </div>
+      </div>
+    </div>  
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label "Phone Number 2", :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="col-md-3"><%= f.number_field :phone2_code, :class=>"form-control", :placeholder=>"Code" %>
+            <span class="help-block m-b-none">Ex. 0141</span>
+        </div>
+        <div class="col-md-5"><%= f.text_field :phone2_number, :class=>"form-control", :placeholder=>"Telephone Number" %>
+            <span class="help-block m-b-none">2236220</span>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :name, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :name, :class=>"form-control", :placeholder=>"Chitresh Kumar Goyal" %>
+    <span class="help-block m-b-none">Website owner name goes here.</span></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label "Address", :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.text_field :add_line1, :class=>"form-control m-b", :placeholder=>"Line 1" %>
+        <%= f.text_field :add_line2, :class=>"form-control m-b", :placeholder=>"Line 2" %>
+        <%= f.text_field :add_line3, :class=>"form-control m-b", :placeholder=>"Line 3" %>
+    </div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :city, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :city, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :state, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :state, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :country, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :country, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :mobile1, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :mobile1, :class=>"form-control", :placeholder=>"+91-9610283711" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :mobile2, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :mobile2, :class=>"form-control", :placeholder=>"+91-9610283711" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :facebook_url, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :facebook_url, :class=>"form-control", :placeholder=>"https://www.facebook.com/chitresh.goyal" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :twitter_url, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :twitter_url, :class=>"form-control", :placeholder=>"https://twitter.com/chitreshstar1" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-2">
+          <button class="btn btn-white" type="submit">Cancel</button>
+          <%= f.submit "Save Changes", :type=>"submit", :class=>"btn btn-primary" %>
+      </div>
+  </div>
+
+<% end %>
+</div>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Storypic:</strong>
+  <%= @admin_about_me.storypic %>
+</p>
+
+<p>
+  <strong>Story title:</strong>
+  <%= @admin_about_me.story_title %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @admin_about_me.story %>
+</p>
+
+<p>
+  <strong>Progressbar title:</strong>
+  <%= @admin_about_me.progressbar_title %>
+</p>
+
+<p>
+  <strong>Progressbar description:</strong>
+  <%= @admin_about_me.progressbar_description %>
+</p>
+
+<%= link_to 'Edit', edit_admin_about_me_path(@admin_about_me) %> |
+<%= link_to 'Back', admin_about_mes_path %>

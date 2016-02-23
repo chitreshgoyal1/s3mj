@@ -1,0 +1,52 @@
+<div class="wrapper wrapper-content">
+<div class="row animated fadeInRight">
+
+  <div class="col-md-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>List: Shared Videos</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        
+        <% @admin_sharevideos.each do |admin_sharevideo| %>
+          <div class="ibox-content">
+              <div class="feed-activity-list">
+                  <div class="feed-element">
+                    <small class="text-muted">
+                      Created at: <%= admin_sharevideo.created_at.strftime(" %I : %M %p - %A, %d %b ( %Y )") %><br>
+                      Updated at: <%= admin_sharevideo.updated_at.strftime(" %I : %M %p - %A, %d %b ( %Y )") %>
+                    </small>
+                  </div>
+
+                  <div class="feed-element">
+                      <div class="media-body ">
+                          <strong>Embed URL</strong> <br>
+                          <div class="well" style="width: 500px;">
+                            <%= admin_sharevideo.embed.html_safe %>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="feed-element">
+                      <div class="media-body ">
+                        <%= link_to 'Edit', edit_admin_sharevideo_path(admin_sharevideo), :class=>"btn btn-primary" %>
+                        <%= link_to 'Destroy', admin_sharevideo, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+                      </div>
+                  </div>                    
+              </div>
+          </div>
+        <% end %>
+
+
+    </div>
+  </div><!-- col-md-8 -->
+</div>
+
+</div>

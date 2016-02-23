@@ -1,0 +1,1 @@
+json.extract! @admin_contact_info, :id, :embed_url, :email1, :email2, :phone1_code, :phone1_number, :phone2_code, :phone2_number, :name, :add_line1, :add_line2, :add_line3, :city, :state, :country, :mobile1, :mobile2, :facebook_url, :twitter_url, :created_at, :updated_at

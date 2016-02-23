@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Sthirdparties</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tppic</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Service</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_sthirdparties.each do |admin_sthirdparty| %>
+      <tr>
+        <td><%= admin_sthirdparty.tppic %></td>
+        <td><%= admin_sthirdparty.title %></td>
+        <td><%= admin_sthirdparty.description %></td>
+        <td><%= admin_sthirdparty.service_id %></td>
+        <td><%= link_to 'Show', admin_sthirdparty %></td>
+        <td><%= link_to 'Edit', edit_admin_sthirdparty_path(admin_sthirdparty) %></td>
+        <td><%= link_to 'Destroy', admin_sthirdparty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sthirdparty', new_admin_sthirdparty_path %>

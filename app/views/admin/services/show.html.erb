@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service title:</strong>
+  <%= @admin_service.service_title %>
+</p>
+
+<p>
+  <strong>Service caption:</strong>
+  <%= @admin_service.service_caption %>
+</p>
+
+<p>
+  <strong>Tp title:</strong>
+  <%= @admin_service.tp_title %>
+</p>
+
+<p>
+  <strong>Tp caption:</strong>
+  <%= @admin_service.tp_caption %>
+</p>
+
+<p>
+  <strong>Cust title:</strong>
+  <%= @admin_service.cust_title %>
+</p>
+
+<p>
+  <strong>Cust caption:</strong>
+  <%= @admin_service.cust_caption %>
+</p>
+
+<p>
+  <strong>Cust descrption:</strong>
+  <%= @admin_service.cust_descrption %>
+</p>
+
+<p>
+  <strong>Notice board title:</strong>
+  <%= @admin_service.notice_board_title %>
+</p>
+
+<%= link_to 'Edit', edit_admin_service_path(@admin_service) %> |
+<%= link_to 'Back', admin_services_path %>

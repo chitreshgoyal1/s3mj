@@ -1,0 +1,131 @@
+<div class="ibox-content">
+<%= nested_form_for(@admin_service, :html=>{multipart: true, :class=>'form-horizontal', :role=>'form'}) do |f| %>
+  <% if @admin_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_service.errors.count, "error") %> prohibited this admin_service from being saved:</h2>
+
+      <ul>
+      <% @admin_service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :service_title, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :service_title, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label :service_caption, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :service_caption, :class=>"form-control" %></div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <%= f.label 'Service Media', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-8">
+      <div id="admin_smedialists">
+        <%= f.fields_for :admin_smedialists%>
+      </div>
+      
+      <%= f.link_to_add :admin_smedialists, :data => { :target => "#admin_smedialists" } do%>
+        <i class="fa fa-plus"></i> Add
+      <% end %>
+    </div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+
+  <div class="form-group">
+    <%= f.label 'Third Party Title', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :tp_title, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label 'Third Party Caption', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :tp_caption, :class=>"form-control" %></div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <%= f.label 'Third Party Content', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-8">
+      <div id="admin_sthirdparties">
+        <%= f.fields_for :admin_sthirdparties %>
+      </div>
+      
+      <%= f.link_to_add :admin_sthirdparties , :data => { :target => "#admin_sthirdparties" } do%>
+        <i class="fa fa-plus"></i> Add
+      <% end %>
+    </div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+
+  <div class="form-group">
+    <%= f.label 'Customer Title', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :cust_title, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label 'Customer Caption', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :cust_caption, :class=>"form-control" %></div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group">
+    <%= f.label 'Customer Descrption', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_area :cust_descrption, :class=>"form-control", :rows=>'3' %></div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <%= f.label 'Third Party Content', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-8">
+      <div id="admin_scustservices">
+        <%= f.fields_for :admin_scustservices %>
+      </div>
+      
+      <%= f.link_to_add :admin_scustservices , :data => { :target => "#admin_scustservices" } do%>
+        <i class="fa fa-plus"></i> Add
+      <% end %>
+    </div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+
+  <div class="form-group">
+    <%= f.label :notice_board_title, :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-10"><%= f.text_field :notice_board_title, :class=>"form-control" %></div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <%= f.label 'Third Party Content', :class=>"col-sm-2 control-label" %>
+    <div class="col-sm-8">
+      <div id="admin_snotices">
+        <%= f.fields_for :admin_snotices %>
+      </div>
+      
+      <%= f.link_to_add :admin_snotices , :data => { :target => "#admin_snotices" } do%>
+        <i class="fa fa-plus"></i> Add
+      <% end %>
+    </div>
+  </div>
+  <div class="hr-line-dashed"></div>
+
+
+  <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-2">
+          <button class="btn btn-white" type="submit">Cancel</button>
+          <%= f.submit "Save Changes", :type=>"submit", :class=>"btn btn-primary" %>
+      </div>
+  </div>
+
+<% end %>
+</div>

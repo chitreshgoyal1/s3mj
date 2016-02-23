@@ -1,0 +1,25 @@
+<%= form_for(@admin_snotice) do |f| %>
+  <% if @admin_snotice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_snotice.errors.count, "error") %> prohibited this admin_snotice from being saved:</h2>
+
+      <ul>
+      <% @admin_snotice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :service_id %><br>
+    <%= f.number_field :service_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

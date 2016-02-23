@@ -1,0 +1,110 @@
+<!-- banner1 -->
+<div class="banner1">
+	<div class="container">
+	</div>
+</div>
+<!-- //banner1 -->
+<!-- conference -->
+<% @services.each do |service_data| %>
+	<div class="conference">
+		<div class="container">
+			<h3><%= service_data.service_title.humanize %></h3>
+			<p class="nihil"><%= service_data.service_caption.humanize %></p>
+			<div class="conference-grids">
+				<% service_data.admin_smedialists.each_with_index do |smedialist,index| %>
+				<div class="col-md-4 conference-grid">
+					<div class="conference-grid-left">
+						<h4><%= smedialist.title.split(' ',2)[0] %>
+							<span><%= smedialist.title.split(' ',2)[1] %></span></h4>
+					</div>
+					<div class="conference-grid-right">
+						<h5><%= format('%02d',index+1) %>.</h5>
+					</div>
+					<div class="clearfix"> </div>
+					<p><%= smedialist.description %></p>
+					<!-- <div class="more">
+						<a href="single.html" class="type-1">
+							<span> More Info... </span>
+							<span> More Info... </span>
+						</a>
+					</div> -->
+				</div>
+				<% end %>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- body_grids -->
+	<div class="wlcome">
+		<div class="container">
+			<div class="wlcome-grids">
+				<div class="col-md-7 wlcome-grid-left">
+					<div class="gallery">
+						<h3><%= service_data.tp_title.humanize %></h3>
+						<p class="nihil"><%= service_data.tp_caption.humanize %></p>
+						<div class="gallery-grids">
+							<% service_data.admin_sthirdparties.each_with_index do |sthirdparty,index| %>
+							<div class="col-md-6">
+								<ul class="demo-3">
+									<li>
+										<figure>
+											<img src="<%= sthirdparty.tppic.url(:custom) %>" alt="" class="img-responsive" />
+											<figcaption>
+												<h2><%= sthirdparty.title.humanize %></h2>
+												<p><%= sthirdparty.description.humanize %></p>
+											</figcaption>
+										</figure>
+									</li>
+								</ul><br>
+							</div>	
+							<% end %>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="services services1">
+						<h2><%= service_data.cust_title.humanize %></h2>
+						<p class="nihil"><%= service_data.cust_caption.humanize %></p>
+						<h5><%= service_data.cust_descrption.humanize %></h5>
+						<div class="banner-bottom-video-grid-left">
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							  <% service_data.admin_scustservices.each_with_index do |scustservice,index| %>
+							  <% id = index+1 %>
+							  <div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+								  <h4 class="panel-title">
+									<a class="pa_italic <%= id == 1 ? "": 'collapsed'%> " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= id %>" aria-expanded="<%= id == 1 ? true : false %>" aria-controls="collapse<%= id %>">
+									  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>
+									  <%= scustservice.title.humanize %>
+									</a>
+								  </h4>
+								</div>
+								<div id="collapse<%= id %>" class="panel-collapse collapse <%= id == 1 ? "in": "" %>" role="tabpanel" aria-labelledby="headingOne">
+								  <div class="panel-body">
+									<%= scustservice.description.humanize %>
+								  </div>
+								</div>
+							  </div>
+							  <% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5 wlcome-grid-right">
+					<div class="upcoming">
+						<h4><%= service_data.notice_board_title.humanize %></h4>
+						<ul>
+							<% service_data.admin_snotices.each do |snotice| %>
+							<li>
+								<a href="#"><%= snotice.description.humanize %></a>
+								<span><%= snotice.updated_at.strftime("%A, %d %b, %Y") %></span>
+							</li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<% end %>	
+<!-- //conference

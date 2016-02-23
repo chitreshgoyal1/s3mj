@@ -1,0 +1,89 @@
+<!-- footer-top -->
+<!--
+<div class="footer-top">
+	<div class="container">
+		<div class="footer-grids">
+			<figure class="effect-winston">
+				<img src="<%#= image_path('/assets/frontend/1.jpg') %>" alt=" " class="img-responsive">
+				<figcaption> 
+					<h2>Jolly <span>Winston</span></h2>
+					<p>There are many variations of passages of Lorem Ipsum available.</p>
+					<ul class="social_icons">
+						<li><a href="#" class="f1"></a></li>
+						<li><a href="#" class="f2"></a></li>
+						<li><a href="#" class="f3"></a></li>
+					</ul>
+				</figcaption>			
+			</figure>
+		</div>
+	</div>
+</div> -->
+<!-- //footer-top -->
+
+<!-- footer -->
+<div class="footer">
+	<div class="container">
+		<!-- <h3>Sign up for our newsletter</h3>
+		<div class="footer-contact">
+			<form>
+				<input type="text" placeholder="Enter your email to update" required=" ">
+				<input type="submit" value="">
+			</form>
+		</div> -->
+		<div class="footer-grids">
+			<div class="col-md-3 footer-grid">
+				<% @admin_contact_infos.each do |admin_contact_info| %>
+				<p> <%= admin_contact_info.add_line1 %><br> 
+					<%= admin_contact_info.add_line2 %>,
+                    <%= admin_contact_info.add_line3 %>,<br> 
+                    <%= admin_contact_info.city %>, <%= admin_contact_info.state %>, <%= admin_contact_info.country %>.
+				<a href="mailto:<%= admin_contact_info.email1 %>"><%= admin_contact_info.email1 %></a>
+				<p>Mobile : <%= admin_contact_info.mobile1 %></p>
+				<% end %>
+			</div>
+			<div class="col-md-2 footer-grid">
+				<ul>
+					<li><%= link_to "Contact" , contact_us_path %></li>
+					<li><%= link_to "About" , about_us_path %></li>
+					<li><a href="#">Privacy</a></li>
+					<li><a href="#">Terms</a></li>
+				</ul>
+			</div>
+			<div class="col-md-2 footer-grid">
+				<ul>
+					<li><%= link_to "Gallery" , gallery_path %></li>
+					<li><%= link_to "Services" , services_path %></li>
+					<li><%= link_to "Index" , index_path %></li>
+				</ul>
+			</div>
+			<div class="col-md-5 footer-grid">
+				<div class="footer-grid-left">
+					<a href="#"><img src="<%= image_path('/assets/frontend/1.jpg') %>" alt=" " class="img-responsive"></a>
+				</div>
+				<div class="footer-grid-left">
+					<a href="#"><img src="<%= image_path('/assets/frontend/2.jpg') %>" alt=" " class="img-responsive"></a>
+				</div>
+				<div class="footer-grid-left">
+					<a href="#"><img src="<%= image_path('/assets/frontend/3.jpg') %>" alt=" " class="img-responsive"></a>
+				</div>
+				<div class="footer-grid-left">
+					<a href="#"><img src="<%= image_path('/assets/frontend/4.jpg') %>" alt=" " class="img-responsive"></a>
+				</div>
+				<div class="footer-grid-left">
+					<a href="#"><img src="<%= image_path('/assets/frontend/5.jpg') %>" alt=" " class="img-responsive"></a>
+				</div>
+				<div class="footer-grid-left">
+					<a href="#"><img src="<%= image_path('/assets/frontend/p1.jpg') %>" alt=" " class="img-responsive"></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="footer-copy">
+			<p>&copy 2016 Shree Shyam Sharan Ji Maharaj<br/>
+				All rights reserved <br/>
+				Developed by <a href="http://bhavishy.com" target="_blank"> Bhavishy Technologies </a></p>
+		</div>
+	</div>
+</div>
+<!-- //footer -->

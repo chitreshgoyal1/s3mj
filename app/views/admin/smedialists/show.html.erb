@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_smedialist.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_smedialist.description %>
+</p>
+
+<p>
+  <strong>Admin service:</strong>
+  <%= @admin_smedialist.admin_service %>
+</p>
+
+<%= link_to 'Edit', edit_admin_smedialist_path(@admin_smedialist) %> |
+<%= link_to 'Back', admin_smedialists_path %>

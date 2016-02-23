@@ -1,0 +1,5 @@
+<%= user_signed_in? %>
+<% @users.each do |user| %>
+<%= user.email %>
+<%= user.password %>
+<% end %>

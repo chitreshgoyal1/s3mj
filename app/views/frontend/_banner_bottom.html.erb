@@ -1,0 +1,51 @@
+<div class="banner-bottom">
+	<div class="container">
+		<div class="wmuSlider example1">
+			<div class="wmuSliderWrapper">
+				
+				<% @articlecount.times do |i| %>
+				<% rec = i*3 %>
+				<article style="position: absolute; width: 100%; opacity: 0;"> 
+					<div class="banner-wrap">
+						<div class="about-grids">
+							<% 3.times do |j| %>
+							<% record_number = j+rec %>
+							<% client = @clients[record_number] %>
+							
+							<% unless client.blank? %>
+							<div class="col-md-4 about-grid">
+								<div class="about-grid1">
+									<figure class="thumb">
+										<img src="<%= image_path client.clientpic.url(:indexpage) %>" alt=" " class="img-responsive">
+										<figcaption class="caption">
+											<h3><a href="#">Client <%= record_number+1 %> </a></h3>
+											<span><%= client.name.humanize %></span>
+											<p> <%= truncate(client.feedback, :length => 80, :separator => ' ') %></p><br>
+											<span><%= client.contact_details %></span>
+											<!-- <ul>
+												<li><a href="#" class="f1"></a></li>
+												<li><a href="#" class="f2"></a></li>
+												<li><a href="#" class="f3"></a></li>
+											</ul> -->
+										</figcaption>
+									</figure>
+								</div>
+							</div>
+							<% end %>
+
+							<% end %>
+							
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</article>
+
+				<% end %>
+				
+			</div>
+		</div>
+				<script>
+					$('.example1').wmuSlider();         
+				</script> 
+	</div>
+</div>

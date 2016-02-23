@@ -1,0 +1,56 @@
+## create a new uploader
+rails generate uploader Avatar
+
+## this should give you a file in: 
+app/uploaders/avatar_uploader.rb
+
+## open this file for configuration
+class AvatarUploader < CarrierWave::Uploader::Base
+	include CarrierWave::RMagick
+    include CarrierWave::MiniMagick
+	storage :file
+	def store_dir
+		# "public/my/upload/directory"
+		"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+		end
+	# make different size of images
+	# fit  :defines maximum size
+	# fill :defines exact size   		
+		version :thumb do
+		process :resize_to_fit => [250, 250]
+	end
+	version :small do
+		process :resize_to_fill => [128, 128]
+	end
+	version :custom do
+		process :resize_to_fill => [730, 470]
+	end
+	# this allows only images to be upload : validation
+	def content_type_whitelist
+		/image\//
+	end
+end
+
+## add a column in database to save picture string
+rails g migration add_avatar_to_users avatar:string
+rake db:migrate
+
+
+## open your model file and mount the uploader:
+class User < ActiveRecord::Base
+	mount_uploader :avatar, AvatarUploader
+end
+
+## add new column/attribute in strict parameters in controller, example:
+def admin_event_params
+  params.require(:admin_event).permit(:eventpic)
+end
+
+## in form add this
+multipart: true
+
+## how to use in view
+object.eventpic.url
+object.eventpic_url
+object.eventpic.url(:thumb)
+object.eventpic.url(:small)

@@ -1,0 +1,2 @@
+To create a new user you need to uncomment few fields in
+app/view/devise/registrations/new.html.erb

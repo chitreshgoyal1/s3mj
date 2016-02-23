@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  storypic: MyString
+  story_title: MyString
+  story: MyText
+  progressbar_title: MyString
+  progressbar_description: MyText
+
+two:
+  storypic: MyString
+  story_title: MyString
+  story: MyText
+  progressbar_title: MyString
+  progressbar_description: MyText

@@ -1,0 +1,21 @@
+﻿<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">IN+</h1>
+        </div>
+        <h3>Welcome to IN+</h3>
+        <p>
+            Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+        </p>
+        <p>Forgot your password?</p>
+        <%= devise_error_messages! %>
+    	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class=>'m-t', :role=>'form' }) do |f| %>
+            <div class="form-group">
+            	<%= f.email_field :email, autofocus: true, :placeholder=>"Username", :required=>true, :class=>"form-control" %>
+            </div>
+            <%= f.submit "Send me reset password instructions", :class=>'btn btn-primary block full-width m-b' %>
+			<%= render "devise/shared/links" %>
+        <% end %>
+        <%= render "devise/shared/footer" %>
+    </div>
+</div>

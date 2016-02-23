@@ -1,0 +1,32 @@
+<div class="row">
+
+<div class="col-sm-3">
+  <div class="form-group">
+    <%= f.file_field :tppic, :class=>"form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= image_tag f.object.tppic.url(:thumb) %>
+  </div>
+
+</div>
+
+<div class="col-sm-1"></div>
+
+<div class="col-sm-8">
+	<div class="form-group">
+		<%= f.text_field :title, :class=>"form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.text_area :description, :class=>"form-control", :rows=>'3' %>
+	</div>
+
+	<div class="form-group">
+	  <%= f.link_to_remove do %>
+	  <i class="fa fa-trash-o"></i> 
+	  <% end %>
+
+	</div>
+</div>
+</div>
+<div class="hr-line-dashed"></div>

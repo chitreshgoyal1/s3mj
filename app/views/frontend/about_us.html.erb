@@ -1,0 +1,98 @@
+<!-- banner1 -->
+	<div class="banner1">
+		<div class="container">
+			<div class="banner1-info">
+				<!-- <h3>Jai Mata Di</h3> -->
+			</div>
+		</div>
+	</div>
+<!-- //banner1 -->
+<!-- about -->
+<% @about_mes.each do |about_me| %>
+	<div class="about">
+		<div class="container">
+			<div class="about-grds">
+				<div class="col-md-6 about-grd">
+					<div class="about-grd-main">
+						<a class="link" href="#"></a>
+					  <div class="overlay">
+						<div class="arrow-left"></div>
+						<div class="rectangle"></div>
+					  </div>
+
+					  <div class="description">
+						<h4><%= about_me.story_title.humanize %></h4>
+						<p>Sintel is a short computer animated film by the Blender 
+							Institute, part of the Blender Foundation Letraset sheets containing 
+							Lorem Ipsum passages, and more recently with desktop publishing software 
+							like Aldus PageMaker including versions of Lorem Ipsum. See more at Sintel.org</p>
+					  </div>
+						<img src="<%= about_me.storypic.url(:custom) %>" alt=" " class="img-responsive" />
+					</div>
+				</div>
+				<div class="col-md-6 about-grd">
+					<h3><%= about_me.story_title.humanize %>!</h3>
+					<p class="leap"><%= about_me.story.humanize %></p>
+					<!-- <div class="more">
+						<a href="single.html" class="type-1">
+							<span> More Info... </span>
+							<span> More Info... </span>
+						</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="about-bottom">
+		<div class="container">
+			<div class="about-bottom-grids">
+				<div class="col-md-12 about-bottom-grid-right">
+					<h3><%= about_me.progressbar_title.humanize%> !</h3>
+					<p class="nihil">Our customers views</p>
+					<h4><%= about_me.progressbar_description.humanize %></h4>
+					<div class="progress-grids">
+						
+					<ul class="media-list">
+						<% @clients.each do |client| %>
+							<li class="media">
+								<div class="media-left" style="padding-right: 25px;">
+									<div class="feed-activity-list">
+				                        <div class="feed-element">
+				                            <a href="#" class="pull-left">
+				                                <img alt="image" class="img-circle" src="<%= client.clientpic.url(:small) %>">
+				                            </a>
+			                            </div>
+			                        </div>
+								</div>
+								
+								<div class="media-body">
+									<h4 class="media-heading">
+										<%= client.name.humanize %>
+									</h4>
+									<strong><%= client.contact_details.blank? ? "" : "Contact Details:" %> </strong>
+									<p><%= client.contact_details %></p>
+									<strong><%= client.feedback.blank? ? "" : "Feedback:" %> </strong>
+									<p><%= client.feedback %></p>
+									<div class="progress progress1">
+									  <div class="progress-bar progress-bar1" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= client.trustper %>;">
+										<%= client.trustper %> Votes
+									  </div>
+									  <div class="party1">
+										<h5><%= client.name.humanize %></h5>
+									  </div>
+									</div>
+									
+								</div>
+							</li>
+						<% end %>
+					</ul>
+						
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<% end %>
+<!-- //about -->

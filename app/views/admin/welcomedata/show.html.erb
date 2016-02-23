@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_welcomedatum.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_welcomedatum.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @admin_welcomedatum.picture %>
+</p>
+
+<%= link_to 'Edit', edit_admin_welcomedatum_path(@admin_welcomedatum) %> |
+<%= link_to 'Back', admin_welcomedata_path %>
